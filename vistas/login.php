@@ -10,7 +10,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Usuario</label>
+            <label class="label">Contrase&ntilde;a</label>
             <div class="control">
                 <input class="input" type="password" name="login_clave" pattern="[a-zA-Z0-9$.-@]{7,100}" maxlength="100" required>
             </div>
@@ -21,5 +21,11 @@
                 Iniciar Sesion
             </button>
         </p>
+        <?php 
+            if (isset($_POST['login_ususario']) && isset($_POST['login_clave'])) {
+                require_once "./php/main.php";
+                require_once "./php/iniciar_sesion.php";
+            }
+        ?>
     </form>
 </div>
