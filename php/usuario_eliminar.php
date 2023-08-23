@@ -10,7 +10,7 @@
     if($check_usuario->rowCount()==1){
 
     	$check_productos=conexion();
-    	$check_productos=$check_productos->query("SELECT usuario_id FROM productos WHERE usuario_id='$user_id_del' LIMIT 1");
+    	$check_productos=$check_productos->query("SELECT usuario_id FROM producto WHERE usuario_id='$user_id_del' LIMIT 1");
 
     	if($check_productos->rowCount()<=0){
     		
@@ -53,7 +53,6 @@
         ';
     }
     $check_usuario=null;
-
 /*
 MI PARLAY
 FC BAYERN MUNICH vs AUGSBURG - 27 domingo gana el bayern

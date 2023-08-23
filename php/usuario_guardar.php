@@ -1,5 +1,5 @@
 <?php
-
+    
     require_once "main.php";
 
     /*== Almacenando datos ==*/
@@ -125,9 +125,7 @@
 
     /*== Guardando datos ==*/
     $guardar_usuario=conexion();
-    $guardar_usuario=$guardar_usuario->prepare
-        ("INSERT INTO usuario(usuario_nombre,usuario_apellido,usuario_usuario,usuario_clave,usuario_email) 
-            VALUES(:nombre,:apellido,:usuario,:clave,:email)");
+    $guardar_usuario=$guardar_usuario->prepare("INSERT INTO usuario(usuario_nombre,usuario_apellido,usuario_usuario,usuario_clave,usuario_email) VALUES(:nombre,:apellido,:usuario,:clave,:email)");
 
     $marcadores=[
         ":nombre"=>$nombre,
