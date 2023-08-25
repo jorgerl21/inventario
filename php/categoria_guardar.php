@@ -67,7 +67,7 @@
     if ($guardar_categoria->rowCount()==1) {
         echo '
             <div class="notification is-info is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
+                <strong>¡EL REGISTRO SE COMPLETO CON EXITO!</strong><br>
                 La CATEGORIA se registro con exito
             </div>
             ';
