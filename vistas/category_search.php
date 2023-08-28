@@ -5,7 +5,15 @@
 
 <div class="container pb-6 pt-6">
 
+    <?php
+        require_once "./php/main.php";
 
+        if(isset($_POST['modulo_buscador'])){
+            require_once "./php/buscador.php";
+        }
+
+        if(!isset($_SESSION['busqueda_categoria']) && empty($_SESSION['busqueda_categoria'])){
+    ?>
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
@@ -21,14 +29,14 @@
             </form>
         </div>
     </div>
-
+    <?php }else{ ?>
 
     <div class="columns">
         <div class="column">
             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off" >
                 <input type="hidden" name="modulo_buscador" value="categoria"> 
                 <input type="hidden" name="eliminar_buscador" value="categoria">
-                <p>Estas buscando <strong>“Texto busqueda”</strong></p>
+                <p>Estas buscando <strong>“<?php echo $_SESSION['busqueda_categoria'];?>”</strong></p>
                 <br>
                 <button type="submit" class="button is-danger is-rounded">Eliminar busqueda</button>
             </form>
@@ -36,7 +44,38 @@
     </div>
 
 
-    <div class="table-container">
+    
+    
+    <?php 
+
+                    # Eliminar categoria #
+            if(isset($_GET['category_id_del'])){
+                require_once "./php/categoria_eliminar.php";
+            }
+
+            if (!isset($_GET['page'])) {
+                $pagina=1;
+            } else {
+                $pagina=(int) $_GET['page'];
+                if ($pagina<=1) {
+                    $pagina=1;
+                }
+            }
+            $pagina=limpiar_cadena($pagina);
+            $url = 'index.php?vista=category_search&page=';
+            $registros=15;
+            $busqueda=$_SESSION['busqueda_categoria'];
+        
+            require_once "./php/categoria_lista.php";
+        }
+    ?>
+    
+</div>
+
+
+<!-- 
+se corto esta area de codigo para poder hacer uso de el codigo php implementado en user_search
+<div class="table-container">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr class="has-text-centered">
@@ -99,6 +138,4 @@
 
         <a class="pagination-next" href="#">Siguiente</a>
     </nav>
-
-    
-</div>
+-->
