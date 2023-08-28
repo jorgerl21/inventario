@@ -53,9 +53,3 @@
         ';
     }
     $check_usuario=null;
-/*
-MI PARLAY
-FC BAYERN MUNICH vs AUGSBURG - 27 domingo gana el bayern
-SHEFFIELD UNITED vs MACHESTER CITY - 27 domingo ganan el city
-CELTA DE VIGO vs REAL MADRID - 25 viernes gana el real madrid
-*/
