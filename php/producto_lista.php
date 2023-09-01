@@ -45,7 +45,7 @@
 			            if(is_file("./img/producto/".$rows['producto_foto'])){
 			            	$tabla.='<img src="./img/producto/'.$rows['producto_foto'].'">';
 			            }else{
-			            	$tabla.='<img src="./img/producto.png">';
+			            	$tabla.='<img src="./img/productos.png">';
 			            }
 			   $tabla.='</p>
 			        </figure>
@@ -57,41 +57,40 @@
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Imagen</a>
-			                <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Actualizar</a>
-			                <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-rounded is-small">Eliminar</a>
-			            </div>
-			        </div>
-			    </article>
-
-			    <hr>
-            ';
-            $contador++;
-		}
-		$pag_final=$contador-1;
-	}else{
-		if($total>=1){
+                            <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Imagen</a>
+                            <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Actulaizar</a>
+                            <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+                        </div>
+                    </div>
+                    </article>
+					<hr>
+                    ';
+			$contador++;
+        }
+		$pag_final = $contador-1;
+    }else {
+		if ($total>=1) {
 			$tabla.='
-				<p class="has-text-centered" >
-					<a href="'.$url.'1" class="button is-link is-rounded is-small mt-4 mb-4">
+					<p class="has-text-centered">
+						<a href="'.$url.'1" class="button is-link is-rounded is-small mt-4 mb-4">
 						Haga clic acá para recargar el listado
-					</a>
-				</p>
-			';
-		}else{
+						</a>
+					</p>
+					';
+		}else {
 			$tabla.='
-				<p class="has-text-centered" >No hay registros en el sistema</p>
-			';
+					<p class="has-text-centered" >No hay registros en el sistema</p>
+					';
 		}
 	}
-
-	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p class="has-text-right">Mostrando productos <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+	if ($total>0 && $pagina<=$Npaginas) {
+		$tabla.='
+				<p class="has-text-centered">Mostrando productos<strong>total de '.$total.'</strong></p>
+				';
 	}
 
-	$conexion=null;
+	$conexion = null;
 	echo $tabla;
-
-	if($total>=1 && $pagina<=$Npaginas){
-		echo paginador_tablas($pagina,$Npaginas,$url,7);
+	if ($total>=1 && $pagina<=$Npaginas) {
+		echo paginador_tablas($pagina, $Npaginas, $url,7);
 	}

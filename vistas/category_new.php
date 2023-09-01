@@ -8,6 +8,10 @@
 	<div class="form-rest mb-6 mt-6"></div>
 
 	<form action="./php/categoria_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+		<label class="has-text-centered">
+			<strong>Agrega una nueva categoria</strong>
+		</label>
+		<br>
 		<div class="columns">
 		  	<div class="column">
 		    	<div class="control">
