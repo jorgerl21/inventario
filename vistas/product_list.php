@@ -45,7 +45,7 @@
 			            if(is_file("./img/producto/".$rows['producto_foto'])){
 			            	$tabla.='<img src="./img/producto/'.$rows['producto_foto'].'">';
 			            }else{
-			            	$tabla.='<img src="./img/producto.png">';
+			            	$tabla.='<img src="./img/productos.png">';
 			            }
 			   $tabla.='</p>
 			        </figure>
