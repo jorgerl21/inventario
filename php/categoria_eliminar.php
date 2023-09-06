@@ -51,11 +51,4 @@
             ';
     }
     $check_categoria = null;
-    /*
-    vpv pallo veikot
-    sporting kristina
-
-    kings kuopio
-    niemisen urheilijat
-    */
 ?>
