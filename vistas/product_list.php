@@ -1,4 +1,4 @@
-<div class="container id-fluid mb-6">
+<div class="container is-fluid mb-6">
     <h1 class="title">Productos</h1>
     <h2 class="subtitle">Lista de productos</h2>
 </div>
@@ -20,6 +20,8 @@
                 $pagina=1;
             }
         }
+
+        $categoria_id = (isset($_GET['category_id'])) ? $_GET['category_id'] : 0;
 
         $pagina=limpiar_cadena($pagina);
         $url="index.php?vista=product_list&page="; /* <== */

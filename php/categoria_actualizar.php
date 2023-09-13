@@ -68,7 +68,7 @@
             echo '
                 <div class="notification is-danger is-light">
                     <strong>¡Ocurrio un error inesperado!</strong><br>
-                    LA UBICACION no coincide con el formato solicitado
+                    el nombre de la categoria ya esta registrado elija otro diferente
                 </div>
                 ';
                 exit();
@@ -102,4 +102,5 @@
             ';
     }
     $actualizar_categoria = null;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>

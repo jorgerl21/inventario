@@ -12,15 +12,13 @@
             <h2 class="title has-text-centered">Categorias</h2>
             <?php 
                 $categorias = conexion();
-                $categorias = $categorias ->query("SELECT * FROM categoria");
-
-                if ($categorias -> rowCount()>0) {
+                $categorias = $categorias -> query("SELECT * FROM categoria ORDER BY categoria_nombre ASC");
+                if ($categorias -> rowCount() > 0) {
                     $categorias = $categorias -> fetchAll();
-
                     foreach ($categorias as $row) {
-                        echo '<a href="index.php?vista=product_category&category_id='.$row['categoria_id'].'" class="button is-link is-invert is-fullwidth">'.$row['categoria_nombre'].'</a>';
+                        echo '<a href="index.php?vista=product_category&category_id='.$row['categoria_id'].'" class="button is-link is-inverted is-fullwidth">'.$row['categoria_nombre'].'</a>';
                     }
-                } else {
+                }else {
                     echo '<p class="has-text-centered">No hay categorias registradas</p>';
                 }
                 $categorias = null;
@@ -32,41 +30,43 @@
 
                 /* verificando categoria */
                 $check_categoria = conexion();
-                $check_categoria = $check_categoria -> query("SELECT * FROM categoria WHERE categoria_id='$categoria_id'");
+                $check_categoria = $check_categoria -> query("SELECT * FROM categoria WHERE categoria_is='$categoria_id'");
 
                 if ($check_categoria -> rowCount()>0) {
-                    $check_categoria = $check_categoria->fetch();
+                    $check_categoria = $check_categoria -> fetch();
 
-                    echo ' 
-                        <h2 class="title has-text-centered">'.$check_categoria['categoria_nombre'].'</h2>
-                        <p class="has-text-centered pb-6">'.$check_categoria['categoria_ubicacion'].'</p>
-                        ';
+                    echo '
+                    <h2 class="title has-text-centered">'.$check_categoria['categoria_nombre'].'</h2>
+                    <p class="has-text-centered pb-6">'.$check_categoria['categoria_ubicacion'].'</p>
+                    ';
 
+                    require_once "./php/main.php";
+
+                    /* Eliminar Producto */
+                    if (isset($_GET['product_id_del'])) {
                         require_once "./php/producto_eliminar.php";
+                    }
 
-                        if (!isset($_GET['page'])) {
+                    if (!isset($_GET['page'])) {
+                        $pagina = 1;
+                    }else {
+                        $pagina = (int) $_GET['page'];
+                        if ($pagina <= 1) {
                             $pagina = 1;
-                        } else {
-                            $pagina = (int) $_GET['page'];
-                            if ($pagina <= 1) {
-                                $pagina = 1;
-                            }
                         }
+                    }
+                    $pagina = limpiar_cadena($pagina);
+                    $url = "index.php?vista=product_category&category_id=$categoria_id&page=";
 
-                        $pagina = limpiar_cadena($pagina);
-                        $url = "index.php?vista=product_category&category_id=$categoria_id&page=";
+                    $registros = 15;
+                    $busqueda = "";
 
-                        $registros = 15;
-                        $busqueda = "";
-
-                        /* paginador de productos */
-                        require_once "./php/producto_lista.php";
-                        
-                } else {
-                    echo '<h2 class="title has-text-centered">Seleccione una categoria para empezar</h2>';
+                    /* paginador de producto */
+                    require_once "./php/producto_lista.php";
+                }else {
+                    echo '<h2 class="has-text-centered title">Seleccione una categoria para empezar</h2>';
                 }
                 $check_categoria = null;
-                
             ?>
         </div>
     </div>
