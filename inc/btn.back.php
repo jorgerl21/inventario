@@ -1,5 +1,5 @@
 <p class="has-text-right pt-4 pb-4">
-	<a href="#" class="button is-link is-rounded btn-back"><- Regresar atrás</a>
+	<a href="#" class="button is-link is-rounded btn-back">Volver <-</a>
 </p>
 
 <script type="text/javascript">
