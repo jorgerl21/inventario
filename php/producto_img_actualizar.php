@@ -94,5 +94,5 @@
         unlink($img_dir.$datos['producto_foto']);
     }
     
-
+    
 ?>
