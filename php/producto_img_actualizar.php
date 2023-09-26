@@ -93,6 +93,5 @@
         chmod($img_dir.$datos['producto_foto'],0777);
         unlink($img_dir.$datos['producto_foto']);
     }
-    
-    
+      
 ?>

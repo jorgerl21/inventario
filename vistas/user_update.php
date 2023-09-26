@@ -52,7 +52,7 @@
                 <div class="column">
                     <div class="control">
                         <label>Usuario</label>
-                        <input type="text" class="input" name="usuario_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength = "20" required value="<?php echo $datos['usuario_usuario'];?>">
+                        <input type="text" class="input" name="usuario_usuario" pattern="[a-zA-Z0-9]{3,20}" maxlength = "20" required value="<?php echo $datos['usuario_usuario'];?>">
                     </div>
                 </div>
                 <div class="column">
@@ -70,13 +70,13 @@
                 <div class="column">
                     <div class="control">
                         <label>Clave</label>
-                        <input type="password" class="input" name="usuario_clave_1" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength = "100">
+                        <input type="password" class="input" name="usuario_clave_1" pattern="[a-zA-Z0-9$@.-]{3,100}" maxlength = "100">
                     </div>
                 </div>
                 <div class="column">
                     <div class="control">
                         <label>Repetir clave</label>
-                        <input type="password" class="input" name="usuario_clave_2" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength = "100">
+                        <input type="password" class="input" name="usuario_clave_2" pattern="[a-zA-Z0-9$@.-]{3,100}" maxlength = "100">
                     </div>
                 </div>
             </div>
@@ -88,18 +88,22 @@
                 <div class="column">
                     <div class="control">
                         <label>Usuario</label>
-                        <input type="text" class="input" name="administrador_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength = "20" required>
+                        <input type="text" class="input" name="administrador_usuario" pattern="[a-zA-Z0-9]{3,20}" maxlength = "20" required>
                     </div>
                 </div>
                 <div class="column">
                     <div class="control">
                         <label>Clave</label>
-                        <input type="password" class="input" name="administrador_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+                        <input type="password" class="input" name="administrador_clave" pattern="[a-zA-Z0-9$@.-]{3,100}" maxlength="100" required>
                     </div>
                 </div>
             </div>
             <p class="has-text-centered">
                 <button type="submit" class="button is-success is-rounded">Actualizar</button>
+            </p>
+            <br>
+            <p class="has-text-centered">
+            <button type="button" class="button is-info is-rounded">Lista Usuarios</button>
             </p>
         </form>
     <?php }else {

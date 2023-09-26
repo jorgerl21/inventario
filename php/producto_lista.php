@@ -6,33 +6,19 @@
 
 	if(isset($busqueda) && $busqueda!=""){
 
-		$consulta_datos="SELECT $campos FROM producto 
-        INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id 
-        INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id 
-        WHERE producto.producto_codigo 
-        LIKE '%$busqueda%' OR producto.producto_nombre 
-        LIKE '%$busqueda%' ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id WHERE producto.producto_codigo LIKE '%$busqueda%' OR producto.producto_nombre LIKE '%$busqueda%' ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
 
-		$consulta_total="SELECT COUNT(producto_id) FROM producto 
-        WHERE producto_codigo 
-        LIKE '%$busqueda%' OR producto_nombre 
-        LIKE '%$busqueda%'";
+		$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%'";
 
 	}elseif($categoria_id>0){
 
-		$consulta_datos="SELECT $campos FROM producto 
-        INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id 
-        INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id 
-        WHERE producto.categoria_id='$categoria_id' ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id WHERE producto.categoria_id='$categoria_id' ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
 
-		$consulta_total="SELECT COUNT(producto_id) FROM producto 
-        WHERE categoria_id='$categoria_id'";
+		$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE categoria_id='$categoria_id'";
 
 	}else{
 
-		$consulta_datos="SELECT $campos FROM producto 
-        INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id 
-        INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
+		$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id INNER JOIN usuario ON producto.usuario_id=usuario.usuario_id ORDER BY producto.producto_nombre ASC LIMIT $inicio,$registros";
 
 		$consulta_total="SELECT COUNT(producto_id) FROM producto";
 
@@ -59,7 +45,7 @@
 			            if(is_file("./img/producto/".$rows['producto_foto'])){
 			            	$tabla.='<img src="./img/producto/'.$rows['producto_foto'].'">';
 			            }else{
-			            	$tabla.='<img src="./img/producto.png">';
+			            	$tabla.='<img src="./img/productos.png">';
 			            }
 			   $tabla.='</p>
 			        </figure>
