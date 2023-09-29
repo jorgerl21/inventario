@@ -103,7 +103,7 @@
             </p>
             <br>
             <p class="has-text-centered">
-            <button type="button" class="button is-info is-rounded">Lista Usuarios</button>
+            <button type="button" class="button is-info is-rounded" onclick="location.href='userlist.php'">Lista Usuarios</button>
             </p>
         </form>
     <?php }else {
